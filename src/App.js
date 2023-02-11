@@ -20,7 +20,7 @@ function App() {
     try
     {
 
-      const response = await api.get("/api/v1/movies");
+      const response = await api.get("https://movies-api-2023.herokuapp.com/api/v1/movies");
 
       setMovies(response.data);
 
@@ -35,7 +35,7 @@ function App() {
      
     try 
     {
-        const response = await api.get(`/api/v1/movies/${movieId}`);
+        const response = await api.get(`https://movies-api-2023.herokuapp.com/api/v1/movies/${movieId}`);
 
         const singleMovie = response.data;
 

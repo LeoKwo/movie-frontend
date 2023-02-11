@@ -16,6 +16,11 @@ const Reviews = ({getMovieData,movie,reviews,setReviews}) => {
         getMovieData(movieId);
     },[])
 
+    useEffect(()=>{
+        if (movie != null)
+            setReviews(movie.reviewIds);
+    }, [movie])
+
     const addReview = async (e) =>{
         e.preventDefault();
 
@@ -23,7 +28,7 @@ const Reviews = ({getMovieData,movie,reviews,setReviews}) => {
 
         try
         {
-            const response = await api.post("/api/v1/reviews",{reviewBody:rev.value,imdbId:movieId});
+            const response = await api.post("https://movies-api-2023.herokuapp.com/api/v1/reviews",{reviewBody:rev.value,imdbId:movieId});
 
             const updatedReviews = [...reviews, {body:rev.value}];
     
